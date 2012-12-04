@@ -15,5 +15,10 @@ namespace editor
         {
             InitializeComponent();
         }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Text = Convert.ToString(e.X) + "-X  " + Convert.ToString(e.Y) + "-Y";
+        }
     }
 }
