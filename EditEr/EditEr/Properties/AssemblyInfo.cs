@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("editor")]
+[assembly: AssemblyTitle("EditEr")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("vki")]
-[assembly: AssemblyProduct("editor")]
-[assembly: AssemblyCopyright("Copyright © vki 2012")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("EditEr")]
+[assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("c5cb2d45-f293-48f3-9975-f5e339868e66")]
+[assembly: Guid("2d27c390-3a44-4dde-9943-f0d0ce327c89")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //
