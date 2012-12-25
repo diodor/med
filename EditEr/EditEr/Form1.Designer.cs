@@ -63,6 +63,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.shapesList = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -340,12 +341,21 @@
             this.radioButton3.Text = "O";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
+            // shapesList
+            // 
+            this.shapesList.FormattingEnabled = true;
+            this.shapesList.Location = new System.Drawing.Point(0, 36);
+            this.shapesList.Name = "shapesList";
+            this.shapesList.Size = new System.Drawing.Size(85, 186);
+            this.shapesList.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(296, 273);
+            this.Controls.Add(this.shapesList);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
@@ -398,6 +408,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.ListBox shapesList;
     }
 }
 

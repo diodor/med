@@ -107,10 +107,10 @@ namespace EditEr
                 p.DrawWith(e.Graphics, pMain);
             }
 
-            //foreach (int i in shapesList.SelectedIndices)
-            //{ //Отрисовка выделенной фигуры
-            //    Shapes[i].DrawWith(e.Graphics, pSelection);
-            //}
+            foreach (int i in shapesList.SelectedIndices)
+            { //Отрисовка выделенной фигуры
+                Shapes[i].DrawWith(e.Graphics, pSelection);
+            }
         }
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -129,7 +129,7 @@ namespace EditEr
         private void addShape(Shapes shape)
         {
             Shapes.Add(shape);
-            //shapesList.Items.Add(shape.DescriptionString);
+            shapesList.Items.Add(shape.DescriptionString);
         }
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -166,7 +166,6 @@ namespace EditEr
             tempShape = null;
             Refresh();
         }
-
     }
 
 }
