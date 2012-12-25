@@ -48,11 +48,11 @@ namespace EditEr
                         tempShape = new Line(LS, e.Location);
                         Refresh();
                     }
-                    //if (radioButton2.Checked)
-                    //{
-                    //    tempShape = new Circle(Center, e.Location);
-                    //    Refresh();
-                    //}
+                    if (radioButton3.Checked)
+                    {
+                        tempShape = new Circle(Center, e.Location);
+                        Refresh();
+                    }
                 }
             }
         }
@@ -79,20 +79,20 @@ namespace EditEr
                     Refresh();
                 }
             }
-            //if (rdbuttonCircle.Checked)
-            //{
-            //    if (!flagStart)
-            //    {
-            //        Center = e.Location;
-            //        flagStart = true;
-            //    }
-            //    else
-            //    {
-            //        addShape(tempShape);
-            //        flagStart = false;
-            //        Refresh();
-            //    }
-            //}
+            if (radioButton3.Checked)
+            {
+                if (!flagStart)
+                {
+                    Center = e.Location;
+                    flagStart = true;
+                }
+                else
+                {
+                    addShape(tempShape);
+                    flagStart = false;
+                    Refresh();
+                }
+            }
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -153,9 +153,9 @@ namespace EditEr
                     case "Line":
                         Shapes.Add(new Line(sr));
                         break;
-                    //case "Circle":
-                    //    Shapes.Add(new Circle(sr));
-                    //    break;
+                    case "Circle":
+                        Shapes.Add(new Circle(sr));
+                        break;
                 }
             }
             sr.Close();
@@ -166,6 +166,7 @@ namespace EditEr
             tempShape = null;
             Refresh();
         }
+
     }
 
 }

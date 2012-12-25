@@ -126,4 +126,61 @@ namespace EditEr
         }
     }
 
+    class Circle : Shapes
+    {
+        private Point C, onR;
+        Pen p = new Pen(Color.Black);
+
+        public override string DescriptionString
+        {
+            get
+            {
+                return "Circle {C=" + C + ",onR=" + onR + "}";
+            }
+        }
+
+        public float Radius
+        {
+            get { return (float)Math.Sqrt(Math.Pow(onR.X - C.X, 2) + Math.Pow(onR.Y - C.Y, 2)); }
+        }
+
+        public Circle(StreamReader sr)
+        {
+            String circle = sr.ReadLine();
+            string[] foo = circle.Split(' ');
+            C.X = Convert.ToInt32(foo[0]);
+            C.Y = Convert.ToInt32(foo[1]);
+
+            circle = sr.ReadLine();
+            foo = circle.Split(' ');
+            onR.X = Convert.ToInt32(foo[0]);
+            onR.Y = Convert.ToInt32(foo[1]);
+        }
+
+        public Circle(Point _C, Point _point_onR)
+        {
+            this.C = _C;
+            this.onR = _point_onR;
+        }
+
+        public override void DrawWith(Graphics g, Pen p)
+        {
+            g.DrawEllipse(p, C.X - this.Radius, C.Y - this.Radius, Radius * 2, Radius * 2);
+
+        }
+
+        public override void SaveTo(StreamWriter sw) //Сохранение
+        {
+            sw.WriteLine("Circle");
+            sw.WriteLine(Convert.ToString(C.X) + " " + Convert.ToString(C.Y));
+            sw.WriteLine(Convert.ToString(onR.X) + " " + Convert.ToString(onR.Y));
+        }
+
+        public override bool IsNearTo(Point C)
+        {
+            return true;
+        //    //TODO: написать!
+        }
+    }
+
 }
