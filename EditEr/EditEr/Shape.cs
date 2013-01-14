@@ -125,7 +125,6 @@ namespace EditEr
             else return false;
         }
     }
-
     class Circle : Shapes
     {
         private Point C, onR;
@@ -165,6 +164,7 @@ namespace EditEr
 
         public override void DrawWith(Graphics g, Pen p)
         {
+            p = new Pen(Color.Red, 1);
             g.DrawEllipse(p, C.X - this.Radius, C.Y - this.Radius, Radius * 2, Radius * 2);
 
         }
@@ -176,11 +176,12 @@ namespace EditEr
             sw.WriteLine(Convert.ToString(onR.X) + " " + Convert.ToString(onR.Y));
         }
 
-        public override bool IsNearTo(Point C)
+        public override bool IsNearTo(Point _C)
         {
-            return true;
-        //    //TODO: написать!
+            float R = this.Radius;
+            if ((getDistance(C, _C) - R) <= 2) return true;
+            else return false;
         }
     }
-
 }
+

@@ -11,7 +11,7 @@ using System.IO;
 
 namespace EditEr
 {
-    public partial class Form1 : Form
+    public partial class Editor : Form
     {
 
         List<Shapes> Shapes = new List<Shapes>();
@@ -27,7 +27,7 @@ namespace EditEr
         Shapes tempShape; //Поле для хранения временной фигуры
 
 
-        public Form1()
+        public Editor()
         {
             InitializeComponent();
         }
@@ -161,10 +161,44 @@ namespace EditEr
             sr.Close();
             Refresh();
         }
-        private void rdbuttonCircle_CheckedChanged(object sender, EventArgs e)
+
+        private void rdbutonCross_CheckedChanged(object sender, EventArgs e)
         {
             tempShape = null;
             Refresh();
+        }
+
+        private void rdbuttonLine_CheckedChanged(object sender, EventArgs e)
+        {
+            tempShape = null;
+            Refresh();
+        }
+
+        private void MainScreen_MouseLeave(object sender, EventArgs e)
+        {
+            tempShape = null;
+            Refresh();
+        }
+
+        private void shapesList_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+
+
+      //  private void rdbuttonCircle_CheckedChanged(object sender, EventArgs e)
+       // {
+        //    tempShape = null;
+       //     Refresh();
+      //  }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            while (shapesList.SelectedIndices.Count > 0)
+            {
+                Shapes.RemoveAt(shapesList.SelectedIndices[0]);
+                shapesList.Items.RemoveAt(shapesList.SelectedIndices[0]);
+            }
         }
     }
 
