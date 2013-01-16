@@ -16,15 +16,15 @@ namespace EditEr
 
         List<Shapes> Shapes = new List<Shapes>();
 
-        Boolean flagStart = false; //Флаг второй точки для линии
-        Point LS; //Поле для записи координат первой точки для линии
-        Point Center; //Поле для записи координат точки центра окружности
+        Boolean flagStart = false; 
+        Point LS; 
+        Point Center; 
 
         Pen pMain = new Pen(Color.Black);
         Pen pTemp = new Pen(Color.Gray);
         Pen pSelection = new Pen(Color.Red);
 
-        Shapes tempShape; //Поле для хранения временной фигуры
+        Shapes tempShape;
 
 
         public Editor()
@@ -97,19 +97,14 @@ namespace EditEr
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            if (tempShape != null) //Отрисовка мнимого объекта
+            if (tempShape != null) 
             {
                 tempShape.DrawWith(e.Graphics, pTemp);
             }
 
             foreach (Shapes p in this.Shapes)
-            { //Отрисовка готовых объектов
+            { 
                 p.DrawWith(e.Graphics, pMain);
-            }
-
-            foreach (int i in shapesList.SelectedIndices)
-            { //Отрисовка выделенной фигуры
-                Shapes[i].DrawWith(e.Graphics, pSelection);
             }
         }
 
@@ -161,36 +156,6 @@ namespace EditEr
             sr.Close();
             Refresh();
         }
-
-        private void rdbutonCross_CheckedChanged(object sender, EventArgs e)
-        {
-            tempShape = null;
-            Refresh();
-        }
-
-        private void rdbuttonLine_CheckedChanged(object sender, EventArgs e)
-        {
-            tempShape = null;
-            Refresh();
-        }
-
-        private void MainScreen_MouseLeave(object sender, EventArgs e)
-        {
-            tempShape = null;
-            Refresh();
-        }
-
-        private void shapesList_SelectedValueChanged(object sender, EventArgs e)
-        {
-            Refresh();
-        }
-
-
-      //  private void rdbuttonCircle_CheckedChanged(object sender, EventArgs e)
-       // {
-        //    tempShape = null;
-       //     Refresh();
-      //  }
 
         private void button1_Click(object sender, EventArgs e)
         {

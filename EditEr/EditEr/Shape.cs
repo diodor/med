@@ -12,17 +12,11 @@ namespace EditEr
         public abstract string DescriptionString { get; }
         public abstract void DrawWith(Graphics g, Pen p);
         public abstract void SaveTo(StreamWriter sw);
-        public abstract bool IsNearTo(Point C);
-
-        protected float getDistance(Point A, Point B)
-        {
-            return (float)Math.Sqrt(Math.Pow(A.X - B.X, 2) + Math.Pow(A.Y - B.Y, 2));
-        }
     }
 
     public class Cross : Shapes
     {
-        private int X, Y; //TODO: переписать как один Point!
+        private int X, Y;
 
         public override string DescriptionString
         {
@@ -58,17 +52,6 @@ namespace EditEr
             sw.WriteLine("Cross");
             sw.WriteLine(Convert.ToString(X) + " " + Convert.ToString(Y));
         }
-
-        public override bool IsNearTo(Point C)
-        {
-            Point tmpCross = new Point();
-            tmpCross.X = X;
-            tmpCross.Y = Y;
-
-            if (getDistance(tmpCross, C) <= 2) return true;
-            else return false;
-        }
-
     }
 
     class Line : Shapes
@@ -113,16 +96,6 @@ namespace EditEr
             sw.WriteLine("Line");
             sw.WriteLine(Convert.ToString(S.X) + " " + Convert.ToString(S.Y));
             sw.WriteLine(Convert.ToString(F.X) + " " + Convert.ToString(F.Y));
-        }
-
-        public override bool IsNearTo(Point C)
-        {
-            float AC = getDistance(S, C);
-            float BC = getDistance(F, C);
-            float AB = getDistance(S, F);
-
-            if (((AC + BC) - AB) <= 1) return true;
-            else return false;
         }
     }
     class Circle : Shapes
@@ -176,12 +149,6 @@ namespace EditEr
             sw.WriteLine(Convert.ToString(onR.X) + " " + Convert.ToString(onR.Y));
         }
 
-        public override bool IsNearTo(Point _C)
-        {
-            float R = this.Radius;
-            if ((getDistance(C, _C) - R) <= 2) return true;
-            else return false;
-        }
     }
 }
 
